@@ -151,7 +151,50 @@ Database
 
 ---
 
-## 5. Cấu Trúc Package
+## 5. DTO – Data Transfer Object
+
+**DTO là object dùng để truyền dữ liệu giữa các tầng**, đặc biệt giữa Controller và client (frontend).
+
+Có 2 loại:
+- `RequestDTO` → nhận data từ frontend (input)
+- `ResponseDTO` → trả data về cho frontend (output)
+
+**Tại sao không dùng Entity trực tiếp?**
+- Entity có thể chứa field nhạy cảm (password, internal id...)
+- Entity map 1-1 với database, không phải lúc nào cũng phù hợp với frontend
+- Tách biệt database schema và API contract → thay đổi DB không ảnh hưởng API
+
+Ví dụ:
+```java
+// Entity – map với database
+class Book {
+    Long id;
+    String title;
+    String author;
+    int totalCopies;       // frontend không cần biết
+    int availableCopies;
+}
+
+// RequestDTO – nhận từ frontend khi tạo sách mới
+class BookRequestDTO {
+    String title;
+    String author;
+    String category;
+    int totalCopies;
+}
+
+// ResponseDTO – trả về cho frontend
+class BookResponseDTO {
+    Long id;
+    String title;
+    String author;
+    int availableCopies;   // chỉ trả những gì cần thiết
+}
+```
+
+---
+
+## 6. Cấu Trúc Package
 
 ```
 src/main/java/com/library/management/
