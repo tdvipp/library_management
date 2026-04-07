@@ -3,10 +3,7 @@ package com.library.management.dto.request;
 import lombok.Data;
 
 @Data
-public class BookRequestDTO {
+public class BookFilterDTO {
     private String title;
-    private String description;
     private String author;
-    private String category;
-    private int totalCopies;
 }

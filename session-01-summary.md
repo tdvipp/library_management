@@ -306,5 +306,4 @@ public enum BookStatus {
 
 ## 9. Bài Tập Về Nhà
 
-- [ ] Viết `Book.java` với enum `BookStatus`
 - [ ] Viết `BorrowRecord.java` với `@ManyToOne` cho `User` và `Book`

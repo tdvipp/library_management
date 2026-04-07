@@ -3,7 +3,6 @@ package com.library.management.dto.request;
 import lombok.Data;
 
 @Data
-public class BorrowRecordRequestDTO {
+public class BorrowRecordFilterDTO {
     private Long userId;
-    private Long bookId;
 }
